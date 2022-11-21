@@ -34,11 +34,7 @@ namespace BeerTest.Services
             try
             {
                 var response = await _client.GetStreamAsync($"https://api.punkapi.com/v2/beers?beer_name={text}");
-                //  var response = await _client.GetStringAsync($"https://api.punkapi.com/v2/beers?beer_name={text}");
-
                 var rto = await JsonSerializer.DeserializeAsync<IEnumerable<BeerRto>>(response);
-
-                //  var enumerator = JsonSerializer.DeserializeAsyncEnumerable<BeerRto>(response, JsonSerializerOptions.Default, cancellationToken);
 
                 var beers = new List<Beer>();
 
