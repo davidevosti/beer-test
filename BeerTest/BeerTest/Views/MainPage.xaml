@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeerTest.Views.MainPage" Title="Looking for beers?">
+
+    <StackLayout>
+        <SearchBar x:Name="SearchBar"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Start"
+                   Placeholder="Beer name"
+                   SearchCommand="{Binding SearchCommand}"
+                   Text="{Binding SearchText}" />
+
+        <CollectionView ItemsSource="{Binding Beers}" EmptyView="No beers found" VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedBeer}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10, 5">
+                        <Image Source="{Binding ImageSource}" WidthRequest="30" HeightRequest="40" Margin="0, 0, 10, 0" />
+                        <Label Text="{Binding Name}" VerticalTextAlignment="Center" FontSize="Large" />
+                    </StackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+    </StackLayout>
+
+</ContentPage>
