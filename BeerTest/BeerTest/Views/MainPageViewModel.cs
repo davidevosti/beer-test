@@ -24,6 +24,12 @@ namespace BeerTest.Views
             get => _searchText;
             set
             {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    Beers.Clear();
+                    return;
+                }
+                
                 if (_searchText != value)
                 {
                     try
